@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0IIWeydeH2TpiZ3tlKv8ZYFXdKqRTPse2cDcf14+mEfFv6FH6+HbLHPoHHaqrqsqozRNtHs01fZqm0WphQxaZw==",
+  "success": true,
+  "projectFilePath": "E:\\vscode\\WPF_Project\\WPF_CoronavirusChart\\WPF_CoronavirusChart.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kekef\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.3\\microsoft.netcore.app.host.win-x64.5.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

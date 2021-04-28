@@ -1,0 +1,25 @@
+﻿<Application
+    x:Class="SimpleContactBook.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helper="clr-namespace:SimpleContactBook.Helpers"
+    xmlns:local="clr-namespace:SimpleContactBook"
+    xmlns:view="clr-namespace:SimpleContactBook.Views"
+    xmlns:vm="clr-namespace:SimpleContactBook.ViewModels"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/ImageDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--  VM的构造函数带有参数时，采用这个方法来绑定datacontext  -->
+            <DataTemplate DataType="{x:Type vm:BookViewModel}">
+                <view:BookCenterView />
+            </DataTemplate>
+            <helper:BoolToVisibilityConverter x:Key="IsEditConverter" />
+            <helper:NullToVisibilityConverter x:Key="SelectedContactConverter" />
+            <helper:BoolToVisibilityHideConverter x:Key="IsHiddenConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

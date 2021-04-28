@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30223.230
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_ElementToElementBinding", "WPF_ElementToElementBinding\WPF_ElementToElementBinding.csproj", "{49A29C0D-AEF2-4BE3-A90E-90D32CF87053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_DynamicBinding", "WPF_DynamicBinding\WPF_DynamicBinding.csproj", "{0FEA297B-691C-44F0-8B57-ADC39971B0A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49A29C0D-AEF2-4BE3-A90E-90D32CF87053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A29C0D-AEF2-4BE3-A90E-90D32CF87053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A29C0D-AEF2-4BE3-A90E-90D32CF87053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A29C0D-AEF2-4BE3-A90E-90D32CF87053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEA297B-691C-44F0-8B57-ADC39971B0A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEA297B-691C-44F0-8B57-ADC39971B0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEA297B-691C-44F0-8B57-ADC39971B0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEA297B-691C-44F0-8B57-ADC39971B0A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87576DBA-CD37-4657-9E52-E24221ACFA8C}
+	EndGlobalSection
+EndGlobal

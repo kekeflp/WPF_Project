@@ -1,0 +1,206 @@
+﻿<Window
+    x:Class="CourseManagement.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CourseManagement"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:CourseManagement.Views"
+    Title="课程管理系统"
+    Width="1250"
+    Height="800"
+    AllowsTransparency="True"
+    Background="{x:Null}"
+    FontFamily="微软雅黑"
+    FontSize="12"
+    FontWeight="ExtraLight"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <!--  Toggle Button Style Template  -->
+        <ImageBrush x:Key="tb_mouse_over" ImageSource="/Assets/images/internet_grey.png" />
+
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border
+        Margin="5"
+        Background="White"
+        CornerRadius="10"
+        MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="5"
+                Direction="0"
+                Opacity="0.3"
+                ShadowDepth="0"
+                Color="Gray" />
+        </Border.Effect>
+        <Grid>
+            <Border
+                Height="200"
+                VerticalAlignment="Top"
+                Background="#007dfa"
+                CornerRadius="10 10 0 0" />
+
+            <StackPanel
+                Margin="0,5,5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Button
+                    Click="BtnMin_Click"
+                    Content="&#xe68f;"
+                    Style="{StaticResource ControlWindowSizeBtn}" />
+                <Button
+                    Click="BtnMax_Click"
+                    Content="&#xe66f;"
+                    Style="{StaticResource ControlWindowSizeBtn}" />
+                <Button
+                    Click="BtnClose_Click"
+                    Content="&#xe639;"
+                    Style="{StaticResource ControlWindowSizeBtn}" />
+            </StackPanel>
+
+            <Grid Margin="50,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="40"
+                        Height="40"
+                        Source="/assets/images/logo.ico" />
+                    <StackPanel Margin="15,0,0,0">
+                        <TextBlock
+                            FontSize="20"
+                            Foreground="White"
+                            Text="教育课程管理平台" />
+                        <TextBlock
+                            FontSize="10"
+                            Foreground="#88dddddd"
+                            Text="Education Manager Plant" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock
+                            FontFamily="/assets/icons/#iconfont"
+                            FontSize="25"
+                            Foreground="White"
+                            Text="&#xe634;" />
+                    </Border>
+
+                    <Image
+                        Width="30"
+                        Height="30"
+                        Margin="10,0,0,0"
+                        Source="{Binding UserInfo.Avatar}"
+                        Stretch="Fill">
+                        <Image.Clip>
+                            <EllipseGeometry
+                                Center="15 15"
+                                RadiusX="15"
+                                RadiusY="15" />
+                        </Image.Clip>
+                    </Image>
+                    <Button
+                        x:Name="siderUser"
+                        Margin="10,0,0,0"
+                        Content="{Binding UserInfo.UserName, FallbackValue=NULL}"
+                        Style="{DynamicResource ButtonStyle1}" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <RadioButton
+                        Command="{Binding TabSwitchCommand}"
+                        CommandParameter="HomePageView"
+                        Content="首页"
+                        IsChecked="True"
+                        Style="{StaticResource NavButton}" />
+                    <RadioButton
+                        Command="{Binding TabSwitchCommand}"
+                        CommandParameter="AboutUsPageView"
+                        Content="关于我们"
+                        Style="{StaticResource NavButton}" />
+                    <RadioButton
+                        Command="{Binding TabSwitchCommand}"
+                        CommandParameter="CoursePageView"
+                        Content="课程中心"
+                        Style="{StaticResource NavButton}" />
+                    <RadioButton
+                        Command="{Binding TabSwitchCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                        Content="诚聘英才"
+                        Style="{StaticResource NavButton}" />
+                    <RadioButton
+                        Command="{Binding TabSwitchCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                        Content="个人中心"
+                        Style="{StaticResource NavButton}" />
+                </StackPanel>
+
+                <TextBox
+                    Grid.Row="1"
+                    Width="300"
+                    HorizontalAlignment="Right"
+                    Style="{DynamicResource SearchBoxStyle}"
+                    Text="{Binding SearchText}" />
+                <!--  分页控件  -->
+                <ContentControl Grid.Row="2" Content="{Binding CurrentContent}" />
+            </Grid>
+
+            <!--  TODO:  侧边栏 未完成  -->
+            <view:SidebarView
+                x:Name="SiderView"
+                Width="350"
+                Margin="-800,0,0,0"
+                HorizontalAlignment="Right"
+                DataContext="{Binding}"
+                Visibility="Hidden" />
+        </Grid>
+    </Border>
+</Window>

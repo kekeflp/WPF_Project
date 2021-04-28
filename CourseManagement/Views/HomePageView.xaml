@@ -1,0 +1,757 @@
+﻿<UserControl
+    x:Class="CourseManagement.Views.HomePageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:com="clr-namespace:CourseManagement.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:instru="clr-namespace:Instrument;assembly=Instrument"
+    xmlns:local="clr-namespace:CourseManagement.Views"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CourseManagement.ViewModels"
+    d:DesignHeight="800"
+    d:DesignWidth="1200"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vm:HomePageViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <com:BoolToArrowConverter x:Key="btac" />
+        <com:BoolToColorConverter x:Key="btcc" />
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="360" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <UniformGrid Columns="4">
+                <Border
+                    Margin="10"
+                    Background="White"
+                    CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="105"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#f2f2f2" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <StackPanel
+                            Margin="15"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="#edfaf0"
+                                CornerRadius="5">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe504;" />
+                            </Border>
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="#7ada95"
+                                Text="4%" />
+                        </StackPanel>
+
+                        <lvc:CartesianChart Margin="15,10,15,10">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries
+                                    Fill="#fff2de"
+                                    PointGeometrySize="0"
+                                    Stroke="#fecc71"
+                                    Values="1,-1,30,27,-15,7" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+                        <StackPanel
+                            Margin="15,3"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="36"
+                                Height="36"
+                                Background="#fff5e9"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe744;" />
+                            </Border>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="CPU使用情况" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="4%" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </Border>
+                <Border
+                    Margin="10"
+                    Background="White"
+                    CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="105"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#f2f2f2" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <StackPanel
+                            Margin="15"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="#edfaf0"
+                                CornerRadius="5">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe504;" />
+                            </Border>
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="#7ada95"
+                                Text="4%" />
+                        </StackPanel>
+
+                        <lvc:CartesianChart Margin="15,10,15,10">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries
+                                    Fill="#0785d8"
+                                    PointGeometrySize="0"
+                                    Stroke="#fd731f"
+                                    Values="1,-1,30,27,-15,7" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+                        <StackPanel
+                            Margin="15,3"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="36"
+                                Height="36"
+                                Background="#fff5e9"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe744;" />
+                            </Border>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="CPU使用情况" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="4%" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </Border>
+                <Border
+                    Margin="10"
+                    Background="White"
+                    CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="105"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#f2f2f2" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <StackPanel
+                            Margin="15"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="#edfaf0"
+                                CornerRadius="5">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe504;" />
+                            </Border>
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="#7ada95"
+                                Text="4%" />
+                        </StackPanel>
+
+                        <lvc:CartesianChart Margin="15,10,15,10">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries
+                                    Fill="AliceBlue"
+                                    PointGeometrySize="0"
+                                    Stroke="Orange"
+                                    Values="1,-1,30,27,-15,7" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+                        <StackPanel
+                            Margin="15,3"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="36"
+                                Height="36"
+                                Background="#fff5e9"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe744;" />
+                            </Border>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="CPU使用情况" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="4%" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </Border>
+                <Border
+                    Margin="10"
+                    Background="White"
+                    CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="105"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#f2f2f2" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <StackPanel
+                            Margin="15"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="20"
+                                Height="20"
+                                Background="#edfaf0"
+                                CornerRadius="5">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe504;" />
+                            </Border>
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="#7ada95"
+                                Text="4%" />
+                        </StackPanel>
+
+                        <lvc:CartesianChart Margin="15,10,15,10">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries
+                                    Fill="#fff2de"
+                                    PointGeometrySize="0"
+                                    Stroke="#fecc71"
+                                    Values="1,-1,30,27,-15,7" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+                        <StackPanel
+                            Margin="15,3"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal">
+                            <Border
+                                Width="36"
+                                Height="36"
+                                Background="#fff5e9"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="/assets/icons/#iconfont"
+                                    Foreground="#7ada95"
+                                    Text="&#xe744;" />
+                            </Border>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="CPU使用情况" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="Bold"
+                                    Text="4%" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </Border>
+            </UniformGrid>
+
+            <Grid Grid.Row="1" Margin="10,1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Margin="0,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Text="学员访问情况监控" />
+                    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Hyperlink>详情</Hyperlink>
+                    </TextBlock>
+
+                    <Border
+                        Grid.Row="1"
+                        Background="White"
+                        CornerRadius="5">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="105"
+                                Direction="270"
+                                Opacity="0.4"
+                                ShadowDepth="10"
+                                Color="#f2f2f2" />
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+                                <TextBlock FontSize="14" Text="当前使用率" />
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Text="+120%" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Margin="0,0,0,10"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom">
+                                <StackPanel
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                                    <Border
+                                        Width="20"
+                                        Height="20"
+                                        Background="#edfaf0"
+                                        CornerRadius="5">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="/assets/icons/#iconfont"
+                                            Foreground="#7ada95"
+                                            Text="&#xe504;" />
+                                    </Border>
+                                    <TextBlock
+                                        Margin="5,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="#7ada95"
+                                        Text="4%" />
+                                </StackPanel>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="15"
+                                    Text="最高使用率" />
+                            </StackPanel>
+
+                            <lvc:CartesianChart Grid.Column="1" Margin="10">
+                                <lvc:CartesianChart.Series>
+                                    <lvc:LineSeries
+                                        Fill="#fff2de"
+                                        PointGeometrySize="0"
+                                        Stroke="#fecc71"
+                                        Values="20,50,30,51,10,99,35,60" />
+                                </lvc:CartesianChart.Series>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis ShowLabels="False" />
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis
+                                        MaxValue="100"
+                                        MinValue="0"
+                                        ShowLabels="True" />
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Text="XX教育集团" />
+
+                    <Border
+                        Grid.Row="1"
+                        Background="#007dfa"
+                        CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="105"
+                                Direction="270"
+                                Opacity="0.4"
+                                ShadowDepth="10"
+                                Color="#f2f2f2" />
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Margin="10">
+                                <TextBlock
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="HI,小伙伴们！" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    Text="波利尼西亚小鸡舞一种古老、神秘但影响广泛的舞蹈，可追溯至公元前 300 年，整个村庄围绕着一个小鸡形状的圈跳舞，祈祷牲畜肥美。冰岛布尔曳步舞,在冰岛人学会用火取暖之前，他们之间流行着这种舞蹈，舞蹈时人们在地上拥成一个圈，用极小极快的动作晃动身体。我有一个学生说冰岛曳步舞是现代甩臀舞的鼻祖。北极机器人舞一个有趣的历史误传，二十世纪六十年代的英国探险者宣称发现了一种像'机器人跳舞'的舞蹈，这种舞蹈动作僵硬，流行于加拿大和阿拉斯加北部地区。后来人们发现这里的居民是因为天气太冷了才做出这样的动作。！"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                            <Image
+                                Grid.Column="1"
+                                Width="60"
+                                Height="60"
+                                Source="/assets/images/logo.ico" />
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Margin="10,1,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            Text="指针仪表数据监控" />
+
+                        <Border Grid.Row="1" CornerRadius="5">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5 0" EndPoint="0.5 1">
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="0.5" Color="Azure" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Grid>
+                                <StackPanel
+                                    Margin="15"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                                    <Border
+                                        Width="20"
+                                        Height="20"
+                                        Background="#edfaf0"
+                                        CornerRadius="5">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="/assets/icons/#iconfont"
+                                            Foreground="Red"
+                                            Text="&#xe504;" />
+                                    </Border>
+
+                                    <TextBlock
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Bottom"
+                                        Foreground="red"
+                                        Text="4%" />
+                                </StackPanel>
+
+                                <StackPanel
+                                    Margin="30,0,0,20"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom">
+                                    <TextBlock FontSize="14" Text="当前使用率" />
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="+120%" />
+                                </StackPanel>
+
+                                <StackPanel
+                                    Margin="0,0,30,20"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom">
+                                    <StackPanel
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal">
+                                        <Border
+                                            Width="20"
+                                            Height="20"
+                                            Background="#edfaf0"
+                                            CornerRadius="5">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="/assets/icons/#iconfont"
+                                                Foreground="#7ada95"
+                                                Text="&#xe504;" />
+                                        </Border>
+                                        <TextBlock
+                                            Margin="5,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Foreground="#7ada95"
+                                            Text="4%" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        FontSize="15"
+                                        Text="最高使用率" />
+                                </StackPanel>
+
+                                <lvc:AngularGauge
+                                    Margin="20"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    FromValue="0"
+                                    LabelsStep="50"
+                                    SectionsInnerRadius=".5"
+                                    TicksForeground="White"
+                                    TicksStep="10"
+                                    ToValue="250"
+                                    Wedge="300"
+                                    Value="180">
+                                    <lvc:AngularGauge.Sections>
+                                        <lvc:AngularSection
+                                            Fill="#F8A725"
+                                            FromValue="0"
+                                            ToValue="200" />
+                                        <lvc:AngularSection
+                                            Fill="#FF3939"
+                                            FromValue="200"
+                                            ToValue="250" />
+                                    </lvc:AngularGauge.Sections>
+                                </lvc:AngularGauge>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="10,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    Text="课程总览" />
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink>详情</Hyperlink>
+                </TextBlock>
+
+
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding CourseSeriseList}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="5">
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="105"
+                                        Direction="270"
+                                        Opacity="0.4"
+                                        ShadowDepth="10"
+                                        Color="#f2f2f2" />
+                                </Border.Effect>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  分隔线  -->
+                                    <Border
+                                        Margin="0,10"
+                                        BorderBrush="#ddd"
+                                        BorderThickness="0,0,1,0" />
+                                    <Border
+                                        Grid.Column="1"
+                                        Margin="0,10"
+                                        BorderBrush="#ddd"
+                                        BorderThickness="0,0,1,0" />
+
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="15"
+                                        Text="{Binding CourseName}" />
+
+                                    <lvc:PieChart
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        DataTooltip="{x:Null}"
+                                        Hoverable="False"
+                                        InnerRadius="8"
+                                        LegendLocation="Right"
+                                        Series="{Binding PieSeriesList}" />
+                                    <!--
+                                        饼图上的不提示 DataTooltip="{x:Null}"
+                                        点击饼图出现分离的效果 Hoverable="True"
+                                    -->
+
+                                    <ItemsControl Grid.Column="2" ItemsSource="{Binding SeriesList}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <!--  一行最多显示5个内容  -->
+                                                <!--<UniformGrid Columns="5" />-->
+                                                <!--  动态绑定 行显示的个数  -->
+                                                <UniformGrid Columns="{Binding DataContext.ItemCount, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding SeriesName}" />
+                                                        <TextBlock Text="{Binding CurrentValue}" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                                        <TextBlock Foreground="{Binding IsGrowing, Converter={StaticResource btcc}}" Text="{Binding IsGrowing, Converter={StaticResource btac}}" />
+                                                        <TextBlock Foreground="{Binding IsGrowing, Converter={StaticResource btcc}}" Text="{Binding ChangeRate, StringFormat={}{0}%}" />
+                                                    </StackPanel>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+
+                                    </ItemsControl>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

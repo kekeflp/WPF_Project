@@ -1,0 +1,31 @@
+﻿<UserControl
+    x:Class="Instrument.Instrument"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Instrument"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Canvas>
+        <Ellipse
+            Width="200"
+            Height="200"
+            Fill="Orange"
+            StrokeThickness="5" />
+        <Path
+            Canvas.Left="55"
+            Canvas.Top="55"
+            Data="M45,2 C68,2 87,21 87,45 87,56 83,66 75,74 M14,74 C6,66 2,56 2,45 2,21 21,2 45,2"
+            Stretch="Fill"
+            Stroke="White"
+            StrokeThickness="5" />
+        <Path
+            Canvas.Left="10"
+            Canvas.Top="10"
+            Data="M88,0 C136,0 175,39 175,88 175,106 169,124 159,138 M16,138 C6,124 0,106 0,88 0,39 39,0 88,0"
+            Stretch="Fill"
+            Stroke="White"
+            StrokeThickness="5" />
+
+    </Canvas>
+</UserControl>

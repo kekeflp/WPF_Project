@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "NvfpZQeVAbX7+9DeZejQD7K0yb9uo6M8XioYxdtUgD7+8Jc+ZoxGxY6oY1o0bKyCONTvvEkuS1sf7QiUHArNHA==",
+  "success": true,
+  "projectFilePath": "D:\\vscode\\WPF_Project\\WPF_CrazyElephant\\WPF_CrazyElephant\\WPF_CrazyElephant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tom\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.0.0\\microsoft.toolkit.mvvm.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

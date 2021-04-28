@@ -1,0 +1,17 @@
+D:\vscode\WPF_Project\Instrument\bin\Debug\net5.0-windows\Instrument.deps.json
+D:\vscode\WPF_Project\Instrument\bin\Debug\net5.0-windows\Instrument.dll
+D:\vscode\WPF_Project\Instrument\bin\Debug\net5.0-windows\ref\Instrument.dll
+D:\vscode\WPF_Project\Instrument\bin\Debug\net5.0-windows\Instrument.pdb
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.csprojAssemblyReference.cache
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.g.cs
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument_MarkupCompile.cache
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument_MarkupCompile.lref
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.baml
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.g.resources
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.GeneratedMSBuildEditorConfig.editorconfig
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.AssemblyInfoInputs.cache
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.AssemblyInfo.cs
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.csproj.CoreCompileInputs.cache
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.dll
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\ref\Instrument.dll
+D:\vscode\WPF_Project\Instrument\obj\Debug\net5.0-windows\Instrument.pdb

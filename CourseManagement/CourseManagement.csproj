@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\iconfont.ttf" />
+    <None Remove="Assets\Images\DefaultAvatar.png" />
+    <None Remove="Assets\Images\internet_grey.png" />
+    <None Remove="Assets\Images\Logo.ico" />
+    <None Remove="Assets\Images\volcano.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.0.1" />
+    <PackageReference Include="System.Data.OleDb" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Instrument\Instrument.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\iconfont.ttf" />
+    <Resource Include="Assets\Images\DefaultAvatar.png" />
+    <Resource Include="Assets\Images\internet_grey.png" />
+    <Resource Include="Assets\Images\Logo.ico" />
+    <Resource Include="Assets\Images\volcano.png" />
+  </ItemGroup>
+
+</Project>

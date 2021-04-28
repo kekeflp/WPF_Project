@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\addIcon.png" />
+    <None Remove="Resources\checkedStar.png" />
+    <None Remove="Resources\createIcon.png" />
+    <None Remove="Resources\defaultContact.png" />
+    <None Remove="Resources\deleteIcon.png" />
+    <None Remove="Resources\hoverStar.png" />
+    <None Remove="Resources\saveIcon.png" />
+    <None Remove="Resources\uncheckedStar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\addIcon.png" />
+    <Resource Include="Resources\checkedStar.png" />
+    <Resource Include="Resources\createIcon.png" />
+    <Resource Include="Resources\defaultContact.png" />
+    <Resource Include="Resources\deleteIcon.png" />
+    <Resource Include="Resources\hoverStar.png" />
+    <Resource Include="Resources\saveIcon.png" />
+    <Resource Include="Resources\uncheckedStar.png" />
+  </ItemGroup>
+
+</Project>

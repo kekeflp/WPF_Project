@@ -1,0 +1,50 @@
+﻿<Window x:Class="WPF_MVVMLesson2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MVVMLesson2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--自定义控件集-->
+        <ItemsControl ItemsSource="{Binding CtrModules}">
+            <!--1、先定义布局方式-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Margin="5" Background="DarkGray"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <!--2、再定义布局内的控件样式-->
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Margin="5" Height="25"
+                            Content="{Binding Name}"
+                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Window}},Path=DataContext.OpenCommand}"
+                            CommandParameter="{Binding Name}"/>
+                    <!--ItemsControl的上下文和windows的上下文不一样，此处需要找window的上下文中包含的OpenCommand命令，并传递一个string类型的参数-->
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--自定义控件，页面导航（切换）功能-->
+        <ContentControl Grid.Column="1" Margin="5" Content="{Binding Page}"/>
+
+        <StackPanel Grid.Column="2" Margin="5">
+            <TextBlock Text="{Binding TestName}" FontSize="50" Background="Gold"/>
+            <!--嵌套取子集的属性-->
+            <TextBlock Text="{Binding CtrModule.Name}" FontSize="20" Margin="0 50 0 0" Background="Gold"/>
+            <!--嵌套列表取子集的属性-->
+            <TextBlock Text="{Binding CtrModules[0].Name}" FontSize="10" Margin="0 20 0 0" Background="Gold"/>
+            <TextBlock Text="{Binding CtrModules[1].Name}" FontSize="10" Margin="0 20 0 0" Background="Gold"/>
+            <TextBlock Text="{Binding CtrModules[2].Name}" FontSize="10" Margin="0 20 0 0" Background="Gold"/>
+        </StackPanel>
+    </Grid>
+</Window>

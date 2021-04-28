@@ -1,0 +1,147 @@
+﻿<UserControl
+    x:Class="CourseManagement.Views.SidebarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CourseManagement.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="450"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <!--  打开分镜头  -->
+        <Storyboard x:Key="OpenStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="SiderLayout"
+                From="{Binding ElementName=SiderLayout, Path=Width}"
+                To="0"
+                Duration="00:00:00.5">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <!--  关闭分镜头  -->
+        <Storyboard x:Key="CloseStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="SiderLayout"
+                From="0"
+                To="{Binding ElementName=SiderLayout, Path=Width}"
+                Duration="00:00:00.5">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <!--<EventTrigger RoutedEvent="">
+                <BeginStoryboard >
+
+                </BeginStoryboard>
+            </EventTrigger>-->
+    </UserControl.Triggers>
+    <Border
+        x:Name="SiderLayout"
+        Background="White"
+        CornerRadius="0 15 15 0">
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="30"
+                FontWeight="Bold"
+                Text="个人信息" />
+            <Image
+                Grid.ColumnSpan="2"
+                Width="120"
+                Height="120"
+                Source="/assets/images/volcano.png"
+                Stretch="Fill">
+                <Image.Clip>
+                    <EllipseGeometry
+                        Center="60 60"
+                        RadiusX="60"
+                        RadiusY="60" />
+                </Image.Clip>
+            </Image>
+            <TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="姓名:" />
+            <TextBlock
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="年龄:" />
+            <TextBlock
+                Grid.Row="3"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="性别:" />
+            <TextBlock
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="个人说明:" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="{Binding}" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="{Binding}" />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="{Binding}" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="15"
+                Text="{Binding}" />
+            <Button
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Background="Transparent"
+                BorderThickness="0"
+                Content="&gt;&gt;"
+                FontSize="20" />
+        </Grid>
+
+    </Border>
+</UserControl>
