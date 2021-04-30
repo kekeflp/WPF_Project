@@ -1,4 +1,6 @@
-﻿namespace CourseManagement.Models
+﻿using System.Collections.Generic;
+
+namespace CourseManagement.Models
 {
     public class Course
     {
@@ -8,5 +10,6 @@
         public bool IsPublish { get; set; }
         public string CourseCover { get; set; }
         public string CourseUrl { get; set; }
+        public List<User> Teacher { get; set; } = new List<User>();
     }
 }

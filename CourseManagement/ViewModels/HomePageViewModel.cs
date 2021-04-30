@@ -1,8 +1,6 @@
-﻿using CourseManagement.Models;
+﻿using CourseManagement.DTO;
+using CourseManagement.Models;
 using CourseManagement.Services;
-using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Linq;

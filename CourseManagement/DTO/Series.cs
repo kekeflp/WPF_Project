@@ -1,4 +1,4 @@
-﻿namespace CourseManagement.Models
+﻿namespace CourseManagement.DTO
 {
     public class Series
     {

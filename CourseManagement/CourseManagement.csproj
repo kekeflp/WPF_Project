@@ -8,6 +8,19 @@
 
   <ItemGroup>
     <None Remove="Assets\Icons\iconfont.ttf" />
+    <None Remove="Assets\Images\book01.png" />
+    <None Remove="Assets\Images\book02.png" />
+    <None Remove="Assets\Images\book03.png" />
+    <None Remove="Assets\Images\book04.png" />
+    <None Remove="Assets\Images\book05.png" />
+    <None Remove="Assets\Images\book06.png" />
+    <None Remove="Assets\Images\book07.png" />
+    <None Remove="Assets\Images\book08.png" />
+    <None Remove="Assets\Images\book09.png" />
+    <None Remove="Assets\Images\book10.png" />
+    <None Remove="Assets\Images\book11.png" />
+    <None Remove="Assets\Images\book12.png" />
+    <None Remove="Assets\Images\book13.png" />
     <None Remove="Assets\Images\DefaultAvatar.png" />
     <None Remove="Assets\Images\internet_grey.png" />
     <None Remove="Assets\Images\Logo.ico" />
@@ -26,6 +39,19 @@
 
   <ItemGroup>
     <Resource Include="Assets\Icons\iconfont.ttf" />
+    <Resource Include="Assets\Images\book01.png" />
+    <Resource Include="Assets\Images\book02.png" />
+    <Resource Include="Assets\Images\book03.png" />
+    <Resource Include="Assets\Images\book04.png" />
+    <Resource Include="Assets\Images\book05.png" />
+    <Resource Include="Assets\Images\book06.png" />
+    <Resource Include="Assets\Images\book07.png" />
+    <Resource Include="Assets\Images\book08.png" />
+    <Resource Include="Assets\Images\book09.png" />
+    <Resource Include="Assets\Images\book10.png" />
+    <Resource Include="Assets\Images\book11.png" />
+    <Resource Include="Assets\Images\book12.png" />
+    <Resource Include="Assets\Images\book13.png" />
     <Resource Include="Assets\Images\DefaultAvatar.png" />
     <Resource Include="Assets\Images\internet_grey.png" />
     <Resource Include="Assets\Images\Logo.ico" />

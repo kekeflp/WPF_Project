@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using CourseManagement.DTO;
 
 namespace CourseManagement.Services
 {
@@ -48,7 +49,7 @@ namespace CourseManagement.Services
                         csList.Add(cs);      // id相等时，只添加一个对象
 
                         cs.PieSeriesList = new SeriesCollection();
-                        cs.SeriesList = new ObservableCollection<Models.Series>();
+                        cs.SeriesList = new ObservableCollection<DTO.Series>();
 
                     }
                     if (cs != null)
@@ -60,7 +61,7 @@ namespace CourseManagement.Services
                             Values = new ChartValues<ObservableValue>
                                     { new ObservableValue(Convert.ToInt32(dr["playcount"])) }
                         });
-                        cs.SeriesList.Add(new Models.Series
+                        cs.SeriesList.Add(new DTO.Series
                         {
                             SeriesName = dr["platformname"].ToString(),
                             CurrentValue = Convert.ToInt32(dr["playcount"]),
@@ -72,6 +73,40 @@ namespace CourseManagement.Services
                 }
             }
             return csList;
+        }
+
+        public List<Course> GetCourseTeacherInfo()
+        {
+            string sql = @"SELECT u.RealName, c.courseid, c.CourseName, c.Description, c.CourseCover 
+                           FROM (Course_User uc LEFT JOIN users u ON uc.UserID = u.UserID)
+                                                LEFT JOIN courses c ON uc.courseid = c.courseid
+                           ORDER BY uc.courseid;";
+            var dr = AccessDbHelper.SelectForDataReader(sql);
+            List<Course> ctiList = new List<Course>();
+            Course cti = null;
+            string courseid = "";
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    string temp = dr["courseid"].ToString();
+                    if (temp != courseid)
+                    {
+                        courseid = temp;
+                        cti = new Course();
+                        cti.CourseName = dr["CourseName"].ToString();
+                        cti.Description = dr["Description"].ToString();
+                        cti.CourseCover = dr["CourseCover"].ToString();
+                        ctiList.Add(cti);
+                    }
+                    if (cti != null)
+                    {
+
+                        cti.Teacher.Add(new User { RealName = dr["RealName"].ToString() });
+                    }
+                }
+            }
+            return ctiList;
         }
     }
 }

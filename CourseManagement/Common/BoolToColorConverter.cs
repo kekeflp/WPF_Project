@@ -1,4 +1,4 @@
-﻿using CourseManagement.Models;
+﻿using CourseManagement.DTO;
 using System;
 using System.Globalization;
 using System.Windows.Data;

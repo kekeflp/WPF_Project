@@ -1,4 +1,5 @@
-﻿using CourseManagement.Models;
+﻿using CourseManagement.DTO;
+using CourseManagement.Models;
 using System.Collections.Generic;
 
 namespace CourseManagement.Services
@@ -9,5 +10,7 @@ namespace CourseManagement.Services
         Course GetCourseById(string id);
 
         List<CourseSerise> GetCourseSerise();
+        List<Course> GetCourseTeacherInfo();
+
     }
 }

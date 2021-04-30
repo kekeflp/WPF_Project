@@ -1,7 +1,7 @@
 ﻿using LiveCharts;
 using System.Collections.ObjectModel;
 
-namespace CourseManagement.Models
+namespace CourseManagement.DTO
 {
     public class CourseSerise
     {
