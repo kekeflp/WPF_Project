@@ -2,7 +2,7 @@
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class HomeViewModel : ObservableObject
+    public class HomeViewModel : ViewModelBase
     {
         public MajorindexViewModel MajorindexVM { get; set; }
 

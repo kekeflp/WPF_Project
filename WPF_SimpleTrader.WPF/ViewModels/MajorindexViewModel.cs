@@ -4,7 +4,7 @@ using WPF_SimpleTrader.Domain.Services;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class MajorindexViewModel : ObservableObject
+    public class MajorindexViewModel : ViewModelBase
     {
         private readonly IMajorindexService _majorindexService;
 
