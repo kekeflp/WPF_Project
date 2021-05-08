@@ -78,7 +78,7 @@ namespace WPF_SimpleTrader.EF.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -104,7 +104,7 @@ namespace WPF_SimpleTrader.EF.Migrations
                         .WithMany("AssetTransactions")
                         .HasForeignKey("AccountId");
 
-                    b.OwnsOne("WPF_SimpleTrader.Domain.Models.Stock", "Stock", b1 =>
+                    b.OwnsOne("WPF_SimpleTrader.Domain.Models.Asset", "Asset", b1 =>
                         {
                             b1.Property<int>("AssetTransactionId")
                                 .ValueGeneratedOnAdd()
@@ -127,7 +127,7 @@ namespace WPF_SimpleTrader.EF.Migrations
 
                     b.Navigation("Account");
 
-                    b.Navigation("Stock");
+                    b.Navigation("Asset");
                 });
 
             modelBuilder.Entity("WPF_SimpleTrader.Domain.Models.Account", b =>

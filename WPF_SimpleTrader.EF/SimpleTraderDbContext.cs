@@ -24,7 +24,7 @@ namespace WPF_SimpleTrader.EF
              * OwnedAttribute从另一个实体类型引用时，可以使用将其视为拥有的实体.
              * 在数据库中的表现就是，相当于把 Stock表 的所有字段嵌入到 AssetTransaction表中。
              */
-            modelBuilder.Entity<AssetTransaction>().OwnsOne(m => m.Stock);
+            modelBuilder.Entity<AssetTransaction>().OwnsOne(m => m.Asset);
             base.OnModelCreating(modelBuilder);
         }
 

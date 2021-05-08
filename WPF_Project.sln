@@ -29,9 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagement", "CourseM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instrument", "Instrument\Instrument.csproj", "{581B384B-58F2-41EE-A06B-BA0C30D2ED34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_SimpleTrader.Domain", "WPF_SimpleTrader.Domain\WPF_SimpleTrader.Domain.csproj", "{E7E1F06E-5A06-40F4-A2AB-0D41402F91D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.Domain", "WPF_SimpleTrader.Domain\WPF_SimpleTrader.Domain.csproj", "{E7E1F06E-5A06-40F4-A2AB-0D41402F91D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_SimpleTrader.EF", "WPF_SimpleTrader.EF\WPF_SimpleTrader.EF.csproj", "{D952B546-6B2F-48D4-8B44-71B2943FDFDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.EF", "WPF_SimpleTrader.EF\WPF_SimpleTrader.EF.csproj", "{D952B546-6B2F-48D4-8B44-71B2943FDFDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.TestDataConsole", "WPF_SimpleTrader.TestDataConsole\WPF_SimpleTrader.TestDataConsole.csproj", "{925E63FD-B1A7-4425-A1CB-A599DFFC1389}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.WPF", "WPF_SimpleTrader.WPF\WPF_SimpleTrader.WPF.csproj", "{12C570FE-BAA1-446E-AE85-8012C3B5240D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.FinancialModelingPrepAPI", "WPF_SimpleTrader.FinancialModelingPrepAPI\WPF_SimpleTrader.FinancialModelingPrepAPI.csproj", "{16E8EECD-B7D9-4996-BECB-07C56122703C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_SimpleTrader.Domain.Tests", "WPF_SimpleTrader.Domain.Tests\WPF_SimpleTrader.Domain.Tests.csproj", "{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +107,22 @@ Global
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E8EECD-B7D9-4996-BECB-07C56122703C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E8EECD-B7D9-4996-BECB-07C56122703C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E8EECD-B7D9-4996-BECB-07C56122703C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E8EECD-B7D9-4996-BECB-07C56122703C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

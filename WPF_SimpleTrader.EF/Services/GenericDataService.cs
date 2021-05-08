@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Design;
-using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using WPF_SimpleTrader.Domain.Models;
 using WPF_SimpleTrader.Domain.Services;
 
 namespace WPF_SimpleTrader.EF.Services
 {
-    public class GenericDataService<T> : IDataService<T> where T : class
+    public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         private readonly SimpleTraderDbContextFactory _contextFactory;
 
@@ -20,29 +19,40 @@ namespace WPF_SimpleTrader.EF.Services
         public async Task<T> Create(T entity)
         {
             using SimpleTraderDbContext context = _contextFactory.CreateDbContext();
-            var createdEntity = await context.Set<T>().AddAsync(entity);
+            EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
             await context.SaveChangesAsync();
-            return createdEntity.Entity;
+            return createdResult.Entity;
         }
 
         public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            using SimpleTraderDbContext context = _contextFactory.CreateDbContext();
+            T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+            context.Set<T>().Remove(entity);
+            return true;
         }
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            throw new NotImplementedException();
+            using SimpleTraderDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<T> entities = await context.Set<T>().ToListAsync();
+            return entities;
         }
 
         public async Task<T> GetOne(int id)
         {
-            throw new NotImplementedException();
+            using SimpleTraderDbContext context = _contextFactory.CreateDbContext();
+            T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+            return entity;
         }
 
         public async Task<T> Update(int id, T entity)
         {
-            throw new NotImplementedException();
+            using SimpleTraderDbContext context = _contextFactory.CreateDbContext();
+            entity.Id = id;
+            context.Set<T>().Update(entity);
+            await context.SaveChangesAsync();
+            return entity;
         }
     }
 }

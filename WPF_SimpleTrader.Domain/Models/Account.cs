@@ -5,9 +5,8 @@ namespace WPF_SimpleTrader.Domain.Models
     /// <summary>
     /// 账户
     /// </summary>
-    public class Account
+    public class Account : DomainObject
     {
-        public int Id { get; set; }
         public double Balance { get; set; }
 
         /// <summary>
@@ -16,6 +15,6 @@ namespace WPF_SimpleTrader.Domain.Models
         public User AccountHolder { get; set; }
 
         // 1:n 关系
-        public IEnumerable<AssetTransaction> AssetTransactions { get; set; } 
+        public ICollection<AssetTransaction> AssetTransactions { get; set; } = new List<AssetTransaction>();
     }
 }

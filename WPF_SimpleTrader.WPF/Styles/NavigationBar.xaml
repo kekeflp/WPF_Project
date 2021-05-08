@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="TitleTextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="NavButton" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{StaticResource BrushPrimary2}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid x:Name="GridMain" Background="{TemplateBinding Background}">
+                        <TextBlock
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Text="{TemplateBinding Content}" />
+                    </Grid>
+                    <!--  模板触发器 偏静态效果使用，类似一次性  -->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="GridMain" Property="Background" Value="{StaticResource BrushPrimary1}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!--  事件触发器 偏动态效果使用  -->
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <!--  分镜  -->
+                    <Storyboard>
+                        <!--  颜色动画 持续0.1秒  -->
+                        <ColorAnimation
+                            Storyboard.TargetProperty="Background.Color"
+                            To="{StaticResource ColorPrimary1}"
+                            Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation
+                            Storyboard.TargetProperty="Background.Color"
+                            To="{StaticResource ColorPrimary2}"
+                            Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
