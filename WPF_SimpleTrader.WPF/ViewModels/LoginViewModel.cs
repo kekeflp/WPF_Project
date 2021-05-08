@@ -1,13 +1,10 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
-using WPF_SimpleTrader.WPF.State;
+﻿using Microsoft.Toolkit.Mvvm.Input;
 using WPF_SimpleTrader.WPF.State.Authenticators;
 using WPF_SimpleTrader.WPF.State.Navigators;
-using WPF_SimpleTrader.WPF.ViewModels.Factories.Inferface;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class LoginViewModel : ObservableObject
+    public class LoginViewModel : ViewModelBase
     {
         private string _username;
         public string Username

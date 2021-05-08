@@ -13,7 +13,6 @@ using WPF_SimpleTrader.WPF.State.Authenticators;
 using WPF_SimpleTrader.WPF.State.Navigators;
 using WPF_SimpleTrader.WPF.ViewModels;
 using WPF_SimpleTrader.WPF.ViewModels.Factories;
-using WPF_SimpleTrader.WPF.ViewModels.Factories.Inferface;
 
 namespace WPF_SimpleTrader.WPF
 {
@@ -46,7 +45,6 @@ namespace WPF_SimpleTrader.WPF
              * 都去用DI实现他，以下均为重构后：
              */
 
-
             // 声明容器-服务集
             IServiceCollection services = new ServiceCollection();
 
@@ -61,22 +59,47 @@ namespace WPF_SimpleTrader.WPF
             services.AddSingleton<IBuyStockService, BuyStockService>();
             services.AddSingleton<IMajorindexService, MajorindexService>();
 
-            services.AddSingleton<ISimpleTraderViewModelAbstractFactory, SimpleTraderViewModelAbstractFactory>();
-            services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
-            services.AddSingleton<ISimpleTraderViewModelFactory<MajorindexViewModel>, MajorindexViewModelFactory>();
-            services.AddSingleton<ISimpleTraderViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
-            services.AddSingleton<ISimpleTraderViewModelFactory<BuyViewModel>, BuyViewModelFactory>();
+            services.AddSingleton<ISimpleTraderViewModelFactory, SimpleTraderViewModelFactory>();
+            services.AddSingleton<BuyViewModel>();
+            services.AddSingleton<PortfolioViewModel>();
+            //services.AddSingleton<AssetSummaryViewModel>();
 
-            // 防止循环引用，抽象一个IRenavigator接口
-        //services.AddSingleton<ISimpleTraderViewModelFactory<LoginViewModel>>((services) =>
-        //                        new LoginViewModelFactory(services.GetRequiredService<IAuthenticator>(),
-        //                        new ViewModelFactoryRenavigator<HomeViewModel>(services.GetRequiredService<INavigator>(),
-        //                        services.GetRequiredService<ISimpleTraderViewModelFactory<HomeViewModel>>())));
+            services.AddSingleton<HomeViewModel>(services =>
+                new HomeViewModel
+                (
+                    MajorindexViewModel.LoadMajorindexViewModel(services.GetRequiredService<IMajorindexService>())
+                )
+            );
+
+            services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<HomeViewModel>();
+            });
+
+            services.AddSingleton<CreateViewModel<BuyViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<BuyViewModel>();
+            });
+
+            services.AddSingleton<CreateViewModel<PortfolioViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<PortfolioViewModel>();
+            });
+
+            services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
+
+            services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
+            {
+                return () => new LoginViewModel(
+                    services.GetRequiredService<IAuthenticator>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
+            });
 
             // 范围实例
-            services.AddScoped<MainViewModel>();
             services.AddScoped<INavigator, NavigatorBarViewModel>();
             services.AddScoped<IAuthenticator, Authenticator>();
+            services.AddScoped<MainViewModel>();
+
             services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             // 构建容器-提供消费使用

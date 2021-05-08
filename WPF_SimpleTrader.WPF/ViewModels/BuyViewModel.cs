@@ -8,7 +8,7 @@ using WPF_SimpleTrader.Domain.Services.TransactionServices;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class BuyViewModel : ObservableObject
+    public class BuyViewModel : ViewModelBase
     {
         private string _symbol;
         public string Symbol

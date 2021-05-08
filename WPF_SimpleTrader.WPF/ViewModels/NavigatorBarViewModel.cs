@@ -2,13 +2,13 @@
 using Microsoft.Toolkit.Mvvm.Input;
 using WPF_SimpleTrader.WPF.State;
 using WPF_SimpleTrader.WPF.State.Navigators;
-using WPF_SimpleTrader.WPF.ViewModels.Factories.Inferface;
+using WPF_SimpleTrader.WPF.ViewModels.Factories;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class NavigatorBarViewModel : ObservableObject, INavigator
+    public class NavigatorBarViewModel : ViewModelBase, INavigator
     {
-        private readonly ISimpleTraderViewModelAbstractFactory _vmAbstractFactory;
+        private readonly ISimpleTraderViewModelFactory _vmAbstractFactory;
         public IRelayCommand<object> UpdateCurrentViewCommand { get; set; }
 
         private object _currentVM;
@@ -18,7 +18,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             set { _currentVM = value; OnPropertyChanged(); }
         }
 
-        public NavigatorBarViewModel(ISimpleTraderViewModelAbstractFactory vmAbstractFactory)
+        public NavigatorBarViewModel(ISimpleTraderViewModelFactory vmAbstractFactory)
         {
             _vmAbstractFactory = vmAbstractFactory;
             UpdateCurrentViewCommand = new RelayCommand<object>((v) => UpdateCurrentViewCmd(v));

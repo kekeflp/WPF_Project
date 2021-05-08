@@ -1,20 +1,19 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using WPF_SimpleTrader.WPF.State;
+﻿using WPF_SimpleTrader.WPF.State;
 using WPF_SimpleTrader.WPF.State.Authenticators;
 using WPF_SimpleTrader.WPF.State.Navigators;
-using WPF_SimpleTrader.WPF.ViewModels.Factories.Inferface;
+using WPF_SimpleTrader.WPF.ViewModels.Factories;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class MainViewModel : ObservableObject
+    public class MainViewModel : ViewModelBase
     {
-        private readonly ISimpleTraderViewModelAbstractFactory _vmAbstractFactory;
+        private readonly ISimpleTraderViewModelFactory _vmAbstractFactory;
 
         // 导航切换(套娃)
         public INavigator NavigatorVM { get; set; }
         public IAuthenticator Authenticator { get; }
 
-        public MainViewModel(IAuthenticator authenticator, INavigator navigator, ISimpleTraderViewModelAbstractFactory vmAbstractFactory)
+        public MainViewModel(IAuthenticator authenticator, INavigator navigator, ISimpleTraderViewModelFactory vmAbstractFactory)
         {
             NavigatorVM = navigator;
             this._vmAbstractFactory = vmAbstractFactory;
