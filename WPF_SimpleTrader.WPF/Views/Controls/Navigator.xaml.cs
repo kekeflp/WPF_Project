@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_SimpleTrader.WPF.Controls
+namespace WPF_SimpleTrader.WPF.Views.Controls
 {
     /// <summary>
-    /// NavigationBar.xaml 的交互逻辑
+    /// Navigator.xaml 的交互逻辑
     /// </summary>
-    public partial class NavigationBar : UserControl
+    public partial class Navigator : UserControl
     {
-        public NavigationBar()
+        public Navigator()
         {
             InitializeComponent();
         }

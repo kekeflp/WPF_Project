@@ -1,6 +1,9 @@
 ﻿using Microsoft.Toolkit.Mvvm.Input;
+using System.Windows;
+using WPF_SimpleTrader.Domain.Exceptions;
 using WPF_SimpleTrader.WPF.State.Authenticators;
 using WPF_SimpleTrader.WPF.State.Navigators;
+using WPF_SimpleTrader.WPF.ViewModels.Messages;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
@@ -20,6 +23,8 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             set { _password = value; OnPropertyChanged(); }
         }
 
+        public MessageViewModel ErrorMessageViewModel { get; }
+
         public IRelayCommand LoginCommand { get; private set; }
         private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
@@ -29,14 +34,30 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             _authenticator = authenticator;
             _renavigator = renavigator;
             LoginCommand = new RelayCommand(LoginCmd);
+
+            ErrorMessageViewModel = new MessageViewModel();
         }
 
         private async void LoginCmd()
         {
-            bool success = await _authenticator.Login(Username, Password);
-            if (success)
+            ErrorMessageViewModel.Message = string.Empty;
+
+            try
             {
+                await _authenticator.Login(Username, Password);
                 _renavigator.Renavigate();
+            }
+            catch (UserNotFoundException)
+            {
+                ErrorMessageViewModel.Message = "用户不存在！";
+            }
+            catch (InvalidPasswordException)
+            {
+                ErrorMessageViewModel.Message = "密码错误！";
+            }
+            catch (System.Exception)
+            {
+                ErrorMessageViewModel.Message = "登录失败,请联系管理员!(如数据库服务链接失败等)!";
             }
         }
     }

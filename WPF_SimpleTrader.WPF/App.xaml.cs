@@ -9,6 +9,8 @@ using WPF_SimpleTrader.Domain.Services.TransactionServices;
 using WPF_SimpleTrader.EF;
 using WPF_SimpleTrader.EF.Services;
 using WPF_SimpleTrader.FinancialModelingPrepAPI.Services;
+using WPF_SimpleTrader.WPF.State.Accounts;
+using WPF_SimpleTrader.WPF.State.Assets;
 using WPF_SimpleTrader.WPF.State.Authenticators;
 using WPF_SimpleTrader.WPF.State.Navigators;
 using WPF_SimpleTrader.WPF.ViewModels;
@@ -62,12 +64,12 @@ namespace WPF_SimpleTrader.WPF
             services.AddSingleton<ISimpleTraderViewModelFactory, SimpleTraderViewModelFactory>();
             services.AddSingleton<BuyViewModel>();
             services.AddSingleton<PortfolioViewModel>();
-            //services.AddSingleton<AssetSummaryViewModel>();
+            services.AddSingleton<AssetSummaryViewModel>();
 
             services.AddSingleton<HomeViewModel>(services =>
                 new HomeViewModel
                 (
-                    MajorindexViewModel.LoadMajorindexViewModel(services.GetRequiredService<IMajorindexService>())
+                    MajorindexViewModel.LoadMajorindexViewModel(services.GetRequiredService<IMajorindexService>()), services.GetRequiredService<AssetSummaryViewModel>()
                 )
             );
 
@@ -95,9 +97,12 @@ namespace WPF_SimpleTrader.WPF
                     services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
             });
 
+            services.AddSingleton<INavigator, Navigator>();
+            services.AddSingleton<IAuthenticator, Authenticator>();
+            services.AddSingleton<IAccountStore, AccountStore>();
+            services.AddSingleton<AssetStroe>();
+
             // 范围实例
-            services.AddScoped<INavigator, NavigatorBarViewModel>();
-            services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
 
             services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));

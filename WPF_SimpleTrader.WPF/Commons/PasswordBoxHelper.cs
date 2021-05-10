@@ -23,7 +23,6 @@ namespace WPF_SimpleTrader.WPF.Commons
         public static readonly DependencyProperty AttachProperty =
             DependencyProperty.RegisterAttached("Attach", typeof(bool), typeof(PasswordBoxHelper), new PropertyMetadata(false, OnAttachPropertyChanged));
 
-
         public static void SetAttach(DependencyObject d, string value)
         {
             d.SetValue(AttachProperty, value);
@@ -46,7 +45,6 @@ namespace WPF_SimpleTrader.WPF.Commons
         {
             return (bool)d.GetValue(IsUpdatingProperty);
         }
-
 
         private static void OnPasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

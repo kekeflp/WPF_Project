@@ -2,12 +2,12 @@
 
 namespace WPF_SimpleTrader.WPF.State.Navigators
 {
-    public class ViewModelDelegateRenavigator<TViewModel> : IRenavigator where TViewModel: ViewModelBase
+    public class ViewModelDelegateRenavigator<TViewModel> : IRenavigator where TViewModel : ViewModelBase
     {
-        readonly INavigator _navigator;
-        readonly CreateViewModel<TViewModel> _viewModelFactory;
+        private readonly INavigator _navigator;
+        private readonly CreateViewModel<TViewModel> _viewModelFactory;
 
-        public ViewModelDelegateRenavigator(INavigator navigator , CreateViewModel<TViewModel> viewModelFactory)
+        public ViewModelDelegateRenavigator(INavigator navigator, CreateViewModel<TViewModel> viewModelFactory)
         {
             _navigator = navigator;
             _viewModelFactory = viewModelFactory;

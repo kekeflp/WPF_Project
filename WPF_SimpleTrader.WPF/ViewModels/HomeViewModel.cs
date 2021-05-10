@@ -1,14 +1,14 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-
-namespace WPF_SimpleTrader.WPF.ViewModels
+﻿namespace WPF_SimpleTrader.WPF.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        public MajorindexViewModel MajorindexVM { get; set; }
+        public AssetSummaryViewModel AssetSummaryViewModel { get; }
+        public MajorindexViewModel MajorindexVM { get; }
 
-        public HomeViewModel(MajorindexViewModel majorindexViewModel)
+        public HomeViewModel(MajorindexViewModel majorindexViewModel, AssetSummaryViewModel assetSummaryViewModel)
         {
             MajorindexVM = majorindexViewModel;
+            AssetSummaryViewModel = assetSummaryViewModel;
         }
     }
 }

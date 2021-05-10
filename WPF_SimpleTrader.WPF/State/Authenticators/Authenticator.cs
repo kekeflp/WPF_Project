@@ -1,46 +1,40 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using WPF_SimpleTrader.Domain.Models;
 using WPF_SimpleTrader.Domain.Services.AuthenticationServices;
+using WPF_SimpleTrader.WPF.State.Accounts;
 
 namespace WPF_SimpleTrader.WPF.State.Authenticators
 {
-    public class Authenticator : ObservableObject, IAuthenticator
+    public class Authenticator : IAuthenticator
     {
-        readonly IAuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
+        private readonly IAccountStore _accountStore;
 
-        public Authenticator(IAuthenticationService authenticationService)
+        public Authenticator(IAuthenticationService authenticationService, IAccountStore accountStore)
         {
             this._authenticationService = authenticationService;
+            _accountStore = accountStore;
         }
 
-        private Account _currentAccount;
+        //private Account _currentAccount;
         public Account CurrentAccount
         {
-            get { return _currentAccount; }
+            get { return _accountStore.CurrentAccount; }
             set
             {
-                _currentAccount = value; 
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(IsLoggedIn));
+                _accountStore.CurrentAccount = value;
+                StateChanged?.Invoke();
             }
         }
 
         public bool IsLoggedIn => CurrentAccount != null;
 
-        public async Task<bool> Login(string username, string password)
+        public event Action StateChanged;
+
+        public async Task Login(string username, string password)
         {
-            bool success = true;
-            try
-            {
-                CurrentAccount = await _authenticationService.Login(username, password);
-            }
-            catch (Exception)
-            {
-                success = false;
-            }
-            return success;
+            CurrentAccount = await _authenticationService.Login(username, password);
         }
 
         public void Logout()

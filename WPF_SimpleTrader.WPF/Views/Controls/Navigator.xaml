@@ -1,10 +1,10 @@
 ﻿<UserControl
-    x:Class="WPF_SimpleTrader.WPF.Controls.NavigationBar"
+    x:Class="WPF_SimpleTrader.WPF.Views.Controls.Navigator"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cvt="clr-namespace:WPF_SimpleTrader.WPF.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPF_SimpleTrader.WPF.Controls"
+    xmlns:local="clr-namespace:WPF_SimpleTrader.WPF.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:state="clr-namespace:WPF_SimpleTrader.WPF.State"
     xmlns:vm="clr-namespace:WPF_SimpleTrader.WPF.ViewModels"
@@ -35,26 +35,26 @@
             <!--  IsChecked 绑定的是 通过比较2个转换类型值 来得出ture/false  -->
             <RadioButton
                 Grid.Column="0"
-                Command="{Binding UpdateCurrentViewCommand}"
+                Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static state:ViewType.Home}"
                 Content="Home"
-                IsChecked="{Binding NavigatorVM.CurrentVM, Converter={StaticResource EqualValueToParameterConverter}, Mode=OneWay, ConverterParameter={x:Type vm:HomeViewModel}}"
+                IsChecked="{Binding CurrentVM, Converter={StaticResource EqualValueToParameterConverter}, Mode=OneWay, ConverterParameter={x:Type vm:HomeViewModel}}"
                 Style="{StaticResource NavButton}" />
             <RadioButton
                 Grid.Column="1"
-                Command="{Binding UpdateCurrentViewCommand}"
+                Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static state:ViewType.Portfolio}"
                 Content="Portfolio"
                 Style="{StaticResource NavButton}" />
             <RadioButton
                 Grid.Column="2"
-                Command="{Binding UpdateCurrentViewCommand}"
+                Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static state:ViewType.Buy}"
                 Content="Buy"
                 Style="{StaticResource NavButton}" />
             <RadioButton
                 Grid.Column="3"
-                Command="{Binding UpdateCurrentViewCommand}"
+                Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static state:ViewType.Sell}"
                 Content="Sell"
                 Style="{StaticResource NavButton}" />

@@ -1,10 +1,13 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
-using System.Collections.Generic;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
+using System.Windows;
+using WPF_SimpleTrader.Domain.Exceptions;
 using WPF_SimpleTrader.Domain.Models;
 using WPF_SimpleTrader.Domain.Models.API;
 using WPF_SimpleTrader.Domain.Services;
 using WPF_SimpleTrader.Domain.Services.TransactionServices;
+using WPF_SimpleTrader.WPF.State.Accounts;
+using WPF_SimpleTrader.WPF.ViewModels.Messages;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
@@ -14,7 +17,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         public string Symbol
         {
             get { return _symbol; }
-            set { _symbol = value; OnPropertyChanged(); }
+            set { _symbol = value.ToUpper(); OnPropertyChanged(); }
         }
 
         /// <summary>
@@ -26,7 +29,6 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             get { return _resultOfsymbol; }
             set { _resultOfsymbol = value; OnPropertyChanged(); }
         }
-
 
         private double _stockPrice;
         public double StockPrice
@@ -52,9 +54,13 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             }
         }
 
+        public MessageViewModel ErrorMessageViewModel { get; }
+        public MessageViewModel StatusMessageViewModel { get; }
+
         public double TotalPrice => ShareToBuy * StockPrice;
 
         private StockResult _stockResultInfo;
+
         public StockResult StockResultInfo
         {
             get { return _stockResultInfo; }
@@ -63,32 +69,72 @@ namespace WPF_SimpleTrader.WPF.ViewModels
 
         private readonly IStockService _stockService;
         private readonly IBuyStockService _buyStockService;
+        private readonly IAccountStore _accountStore;
         public IRelayCommand<string> SearchSymbolCommand { get; private set; }
         public IRelayCommand BuyStockCommand { get; private set; }
 
-        public BuyViewModel(IStockService stockService, IBuyStockService buyStockService)
+        public BuyViewModel(IStockService stockService, IBuyStockService buyStockService, IAccountStore accountStore)
         {
             _stockService = stockService;
             _buyStockService = buyStockService;
+            _accountStore = accountStore;
+
             SearchSymbolCommand = new RelayCommand<string>((s) => SearchSymbolCmd(s));
             BuyStockCommand = new RelayCommand(BuyStockCmd);
+
+            ErrorMessageViewModel = new MessageViewModel();
+            StatusMessageViewModel = new MessageViewModel();
         }
 
         private async void BuyStockCmd()
         {
-            Account user = await _buyStockService.BuyStock(new Account()
+            // 虚构的用户
+            //Account user = await _buyStockService.BuyStock(new Account()
+            //{
+            //    Id = 1,
+            //    Balance = 500,
+            //    AssetTransactions = new List<AssetTransaction>()
+            //}, this.Symbol, this.ShareToBuy);
+
+            StatusMessageViewModel.Message = string.Empty;
+            ErrorMessageViewModel.Message = string.Empty;
+            // 需要带入当前登录的用户信息
+            try
             {
-                Id = 1,
-                Balance = 500,
-                AssetTransactions = new List<AssetTransaction>()
-            }, this.Symbol, this.ShareToBuy);
+                Account account = await _buyStockService.BuyStock(_accountStore.CurrentAccount, this.Symbol, this.ShareToBuy);
+                _accountStore.CurrentAccount = account;
+
+                StatusMessageViewModel.Message = $"成功购买 {ShareToBuy} 股 {Symbol} 的股票.";
+            }
+            catch (InsufficientFundsException)
+            {
+                ErrorMessageViewModel.Message = "账户资金不足，请充值！";
+            }
+            catch (Exception)
+            {
+                ErrorMessageViewModel.Message = "交易失败！";
+            }
         }
 
         private async void SearchSymbolCmd(string symbol)
         {
-            StockResultInfo = await _stockService.GetStock(symbol.ToUpper());
-            this.ResultOfSymbol = StockResultInfo.Symbol;
-            this.StockPrice = StockResultInfo.Price;
+            StatusMessageViewModel.Message = string.Empty;
+            ErrorMessageViewModel.Message = string.Empty;
+
+            try
+            {
+                StockResultInfo = await _stockService.GetStock(symbol.ToUpper());
+                this.ResultOfSymbol = StockResultInfo.Symbol;
+                this.StockPrice = StockResultInfo.Price;
+            }
+            catch (InvalidSymbolException)
+            {
+                ErrorMessageViewModel.Message = "股票不存在！";
+            }
+            catch (Exception)
+            {
+                ErrorMessageViewModel.Message = "获取股票信息失败！";
+            }
         }
     }
 }

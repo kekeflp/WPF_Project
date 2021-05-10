@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using WPF_SimpleTrader.Domain.Models.API;
+﻿using WPF_SimpleTrader.Domain.Models.API;
 using WPF_SimpleTrader.Domain.Services;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
@@ -9,6 +8,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         private readonly IMajorindexService _majorindexService;
 
         private Majorindex _dowJones;
+
         public Majorindex DowJones
         {
             get { return _dowJones; }
@@ -16,6 +16,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         }
 
         private Majorindex _sP500;
+
         public Majorindex SP500
         {
             get { return _sP500; }
@@ -23,12 +24,12 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         }
 
         private Majorindex _nASDAQ;
+
         public Majorindex NASDAQ
         {
             get { return _nASDAQ; }
             set { _nASDAQ = value; OnPropertyChanged(); }
         }
-
 
         public MajorindexViewModel(IMajorindexService majorindexService)
         {
@@ -45,13 +46,15 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         }
 
         #region Async Load
+
         //private async Task LoadMajorindexes()
         //{
         //    DowJones = await _majorindexService.GetMajorindices(MajorindexType.DowJones);
         //    SP500 = await _majorindexService.GetMajorindices(MajorindexType.SP500);
         //    NASDAQ = await _majorindexService.GetMajorindices(MajorindexType.NASDAQ);
         //}
-        #endregion
+
+        #endregion Async Load
 
         private void LoadMajorindexes()
         {

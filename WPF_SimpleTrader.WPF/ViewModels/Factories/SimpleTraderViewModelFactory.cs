@@ -26,15 +26,20 @@ namespace WPF_SimpleTrader.WPF.ViewModels.Factories
             {
                 case ViewType.Home:
                     return _createHomeViewModel();
+
                 case ViewType.Portfolio:
                     return _createPortfolioViewModel();
+
                 case ViewType.Buy:
                     return _createBuyViewModel();
+
                 case ViewType.Sell:
                     //return _sellViewModelFactory.CreateViewModel();
                     return new SellViewModel();
+
                 case ViewType.Login:
                     return _createLoginViewModel();
+
                 default:
                     throw new ArgumentException("没有与这个ViewType所对应的ViewModel", nameof(viewType));
             }

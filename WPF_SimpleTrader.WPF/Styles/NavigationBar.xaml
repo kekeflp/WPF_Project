@@ -14,10 +14,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Grid x:Name="GridMain" Background="{TemplateBinding Background}">
-                        <TextBlock
-                            Padding="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Text="{TemplateBinding Content}" />
+                        <TextBlock Padding="{TemplateBinding Padding}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Text="{TemplateBinding Content}" />
                     </Grid>
                     <!--  模板触发器 偏静态效果使用，类似一次性  -->
                     <ControlTemplate.Triggers>
@@ -35,24 +34,21 @@
                     <!--  分镜  -->
                     <Storyboard>
                         <!--  颜色动画 持续0.1秒  -->
-                        <ColorAnimation
-                            Storyboard.TargetProperty="Background.Color"
-                            To="{StaticResource ColorPrimary1}"
-                            Duration="0:0:0.1" />
+                        <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource ColorPrimary1}"
+                                        Duration="0:0:0.1" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <ColorAnimation
-                            Storyboard.TargetProperty="Background.Color"
-                            To="{StaticResource ColorPrimary2}"
-                            Duration="0:0:0.1" />
+                        <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource ColorPrimary2}"
+                                        Duration="0:0:0.1" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
         </Style.Triggers>
     </Style>
-
 </ResourceDictionary>
