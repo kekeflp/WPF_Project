@@ -2,10 +2,9 @@
 
 namespace WPF_MVVMLesson1.Commons
 {
-    class NotificationPropertyChanged : INotifyPropertyChanged
+    internal class NotificationPropertyChanged : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         public void RiasePropertyChanged(string propertyName)
         {

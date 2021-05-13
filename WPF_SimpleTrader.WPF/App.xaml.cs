@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows;
 using WPF_SimpleTrader.Domain.Models;
@@ -9,6 +12,7 @@ using WPF_SimpleTrader.Domain.Services.TransactionServices;
 using WPF_SimpleTrader.EF;
 using WPF_SimpleTrader.EF.Services;
 using WPF_SimpleTrader.FinancialModelingPrepAPI.Services;
+using WPF_SimpleTrader.WPF.HostBuilders;
 using WPF_SimpleTrader.WPF.State.Accounts;
 using WPF_SimpleTrader.WPF.State.Assets;
 using WPF_SimpleTrader.WPF.State.Authenticators;
@@ -23,17 +27,50 @@ namespace WPF_SimpleTrader.WPF
     /// </summary>
     public partial class App : Application
     {
+        readonly IHost _host;
+        public App()
+        {
+            _host = CreateHostBuilder().Build();
+        }
+
+        private static IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .AddConfiguration()
+                .AddFinanceAPI()
+                .AddDbContext()
+                .AddServices()
+                .AddStores()
+                .AddViewModels()
+                .AddViews();
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             // 需要消费的时候，就到容器中去取
-            IServiceProvider serviceProvider = CreateServiceProvider();
-
+            //IServiceProvider serviceProvider = CreateServiceProvider();
             // 在容器中，取回服务的实例
             //IBuyStockService buyStockService = serviceProvider.GetRequiredService<IBuyStockService>();
 
-            Window window = serviceProvider.GetRequiredService<MainWindow>();
+            _host.Start();
+
+            //SimpleTraderDbContextFactory contextFactory = _host.Services.GetRequiredService<SimpleTraderDbContextFactory>();
+            //using (SimpleTraderDbContext context = contextFactory.CreateDbContext())
+            //{
+            //    context.Database.Migrate();
+            //}
+
+            Window window = _host.Services.GetRequiredService<MainWindow>();
             window.Show();
             base.OnStartup(e);
+        }
+
+        protected override async void OnExit(ExitEventArgs e)
+        {
+            await _host.StopAsync();
+            _host.Dispose();
+
+            base.OnExit(e);
         }
 
         /// <summary>
@@ -51,61 +88,7 @@ namespace WPF_SimpleTrader.WPF
             IServiceCollection services = new ServiceCollection();
 
             // 在容器中增加-单例实例
-            services.AddSingleton<SimpleTraderDbContextFactory>();
-            services.AddSingleton<IAuthenticationService, AuthenticationService>();
-            services.AddSingleton<IAccountService, AccountService>();
-            services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
 
-            services.AddSingleton<IDataService<Account>, GenericDataService<Account>>();
-            services.AddSingleton<IStockService, StockService>();
-            services.AddSingleton<IBuyStockService, BuyStockService>();
-            services.AddSingleton<IMajorindexService, MajorindexService>();
-
-            services.AddSingleton<ISimpleTraderViewModelFactory, SimpleTraderViewModelFactory>();
-            services.AddSingleton<BuyViewModel>();
-            services.AddSingleton<PortfolioViewModel>();
-            services.AddSingleton<AssetSummaryViewModel>();
-
-            services.AddSingleton<HomeViewModel>(services =>
-                new HomeViewModel
-                (
-                    MajorindexViewModel.LoadMajorindexViewModel(services.GetRequiredService<IMajorindexService>()), services.GetRequiredService<AssetSummaryViewModel>()
-                )
-            );
-
-            services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
-            {
-                return () => services.GetRequiredService<HomeViewModel>();
-            });
-
-            services.AddSingleton<CreateViewModel<BuyViewModel>>(services =>
-            {
-                return () => services.GetRequiredService<BuyViewModel>();
-            });
-
-            services.AddSingleton<CreateViewModel<PortfolioViewModel>>(services =>
-            {
-                return () => services.GetRequiredService<PortfolioViewModel>();
-            });
-
-            services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
-
-            services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
-            {
-                return () => new LoginViewModel(
-                    services.GetRequiredService<IAuthenticator>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
-            });
-
-            services.AddSingleton<INavigator, Navigator>();
-            services.AddSingleton<IAuthenticator, Authenticator>();
-            services.AddSingleton<IAccountStore, AccountStore>();
-            services.AddSingleton<AssetStroe>();
-
-            // 范围实例
-            services.AddScoped<MainViewModel>();
-
-            services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             // 构建容器-提供消费使用
             return services.BuildServiceProvider();

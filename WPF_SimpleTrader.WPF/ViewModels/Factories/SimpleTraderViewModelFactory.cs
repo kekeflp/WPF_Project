@@ -9,14 +9,15 @@ namespace WPF_SimpleTrader.WPF.ViewModels.Factories
         private readonly CreateViewModel<PortfolioViewModel> _createPortfolioViewModel;
         private readonly CreateViewModel<BuyViewModel> _createBuyViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
-        //private readonly CreateViewModel<SellViewModel> _createSellViewModel;
+        private readonly CreateViewModel<SellViewModel> _createSellViewModel;
 
-        public SimpleTraderViewModelFactory(CreateViewModel<HomeViewModel> createHomeViewModel, CreateViewModel<PortfolioViewModel> createPortfolioViewModel, CreateViewModel<BuyViewModel> createBuyViewModel, CreateViewModel<LoginViewModel> createLoginViewModel)
+        public SimpleTraderViewModelFactory(CreateViewModel<HomeViewModel> createHomeViewModel, CreateViewModel<PortfolioViewModel> createPortfolioViewModel, CreateViewModel<BuyViewModel> createBuyViewModel, CreateViewModel<LoginViewModel> createLoginViewModel, CreateViewModel<SellViewModel> createSellViewModel)
         {
             _createHomeViewModel = createHomeViewModel;
             _createPortfolioViewModel = createPortfolioViewModel;
             _createBuyViewModel = createBuyViewModel;
             _createLoginViewModel = createLoginViewModel;
+            _createSellViewModel = createSellViewModel;
         }
 
         // 因为本例中所有的viewmodel都继承ObservableObject, 所有此处可以使用这个ObservableObject作为返回类型
@@ -34,8 +35,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels.Factories
                     return _createBuyViewModel();
 
                 case ViewType.Sell:
-                    //return _sellViewModelFactory.CreateViewModel();
-                    return new SellViewModel();
+                    return _createSellViewModel();
 
                 case ViewType.Login:
                     return _createLoginViewModel();

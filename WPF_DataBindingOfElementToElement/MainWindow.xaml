@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPF_DataBindingOfElementToElement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPF_DataBindingOfElementToElement"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10">
+            <Slider Name="Slider"
+                    Height="50"
+                    Maximum="100"
+                    Minimum="1"
+                    TickFrequency="5"
+                    TickPlacement="TopLeft"
+                    Value="20" />
+            <ProgressBar Height="20"
+                         Margin="0,10,0,0"
+                         Value="{Binding ElementName=Slider, Path=Value}" />
+            <!--  单向绑定发生改变，源：Slider，目标：TextBlock  -->
+            <TextBlock Margin="0,10,0,0"
+                       FontSize="{Binding ElementName=Slider, Path=Value}"
+                       Text="Simple1 Text" />
+            <!--  双向绑定发生改变，源：Slider，目标：TextBlock , twoway  -->
+            <TextBlock Name="simple2Text"
+                       Margin="0,10,0,0"
+                       FontSize="{Binding ElementName=Slider, Path=Value, Mode=TwoWay}"
+                       Text="Simple2 Text" />
+            <Button Width="200"
+                    Height="50"
+                    Click="ButtonBase_OnClick"
+                    Content="点击改变Simple2 Text字体大小" />
+
+            <!--  绑定色彩  -->
+            <TextBlock Name="simple3Text"
+                       Margin="0,10,0,0"
+                       FontSize="30"
+                       Foreground="{Binding ElementName=listBox1, Path=SelectedItem.Tag}"
+                       Text="Simple3 Text" />
+            <ListBox Name="listBox1" Margin="0,10,0,0">
+                <ListBoxItem Content="Blue" Tag="Blue" />
+                <ListBoxItem Content="Yellow" Tag="Yellow" />
+                <ListBoxItem Content="Red" Tag="Red" />
+            </ListBox>
+            <TextBox Name="simple4Text"
+                     Margin="0,10,0,0"
+                     Text="{Binding ElementName=simple3Text, Path=FontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+    </Grid>
+</Window>

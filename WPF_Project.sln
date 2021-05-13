@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console_QQ", "Console_QQ\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleContactBook", "SimpleContactBook\SimpleContactBook.csproj", "{A7FDA794-01EC-4B4E-9368-0F9AE151488A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Resume", "WPF_Resume\WPF_Resume\WPF_Resume.csproj", "{C81A55F4-A7B4-459B-BE53-47E0543B4F43}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_CrazyElephant", "WPF_CrazyElephant\WPF_CrazyElephant\WPF_CrazyElephant.csproj", "{BA81DE88-CAEA-4FA8-BFCB-C8165B0DFF3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndustryApp", "IndustryApp\IndustryApp.csproj", "{27505776-7CDD-40D1-8996-527FF7439508}"
@@ -33,13 +31,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.EF", "WPF_SimpleTrader.EF\WPF_SimpleTrader.EF.csproj", "{D952B546-6B2F-48D4-8B44-71B2943FDFDC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.TestDataConsole", "WPF_SimpleTrader.TestDataConsole\WPF_SimpleTrader.TestDataConsole.csproj", "{925E63FD-B1A7-4425-A1CB-A599DFFC1389}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.WPF", "WPF_SimpleTrader.WPF\WPF_SimpleTrader.WPF.csproj", "{12C570FE-BAA1-446E-AE85-8012C3B5240D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.FinancialModelingPrepAPI", "WPF_SimpleTrader.FinancialModelingPrepAPI\WPF_SimpleTrader.FinancialModelingPrepAPI.csproj", "{16E8EECD-B7D9-4996-BECB-07C56122703C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_SimpleTrader.Domain.Tests", "WPF_SimpleTrader.Domain.Tests\WPF_SimpleTrader.Domain.Tests.csproj", "{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_SimpleTrader.Domain.Tests", "WPF_SimpleTrader.Domain.Tests\WPF_SimpleTrader.Domain.Tests.csproj", "{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_Resume", "WPF_Resume\WPF_Resume.csproj", "{E2821104-4B85-4577-A039-B4E58DEC8AFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_RouteEvent", "WPF_RouteEvent\WPF_RouteEvent.csproj", "{F9683553-6728-45AF-B4FD-8A713EF35A64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_TunnelRouteEvent", "WPF_TunnelRouteEvent\WPF_TunnelRouteEvent.csproj", "{B668E0C2-2C6A-4126-A435-85DE6CCA09FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_DataBindingOfDynamic", "WPF_DataBindingOfDynamic\WPF_DataBindingOfDynamic.csproj", "{DDFBA350-186F-4B9D-8408-D70B2C1501EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_DataBindingOfElementToElement", "WPF_DataBindingOfElementToElement\WPF_DataBindingOfElementToElement.csproj", "{DE849D42-8DF0-4BBB-A664-E11178407C4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,10 +85,6 @@ Global
 		{A7FDA794-01EC-4B4E-9368-0F9AE151488A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7FDA794-01EC-4B4E-9368-0F9AE151488A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7FDA794-01EC-4B4E-9368-0F9AE151488A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C81A55F4-A7B4-459B-BE53-47E0543B4F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C81A55F4-A7B4-459B-BE53-47E0543B4F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C81A55F4-A7B4-459B-BE53-47E0543B4F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C81A55F4-A7B4-459B-BE53-47E0543B4F43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA81DE88-CAEA-4FA8-BFCB-C8165B0DFF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA81DE88-CAEA-4FA8-BFCB-C8165B0DFF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA81DE88-CAEA-4FA8-BFCB-C8165B0DFF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -107,10 +109,6 @@ Global
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D952B546-6B2F-48D4-8B44-71B2943FDFDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{925E63FD-B1A7-4425-A1CB-A599DFFC1389}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C570FE-BAA1-446E-AE85-8012C3B5240D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -123,6 +121,26 @@ Global
 		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2ED39A8-3DC2-4402-AF2B-10B8949B3506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2821104-4B85-4577-A039-B4E58DEC8AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2821104-4B85-4577-A039-B4E58DEC8AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2821104-4B85-4577-A039-B4E58DEC8AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2821104-4B85-4577-A039-B4E58DEC8AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9683553-6728-45AF-B4FD-8A713EF35A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9683553-6728-45AF-B4FD-8A713EF35A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9683553-6728-45AF-B4FD-8A713EF35A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9683553-6728-45AF-B4FD-8A713EF35A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B668E0C2-2C6A-4126-A435-85DE6CCA09FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B668E0C2-2C6A-4126-A435-85DE6CCA09FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B668E0C2-2C6A-4126-A435-85DE6CCA09FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B668E0C2-2C6A-4126-A435-85DE6CCA09FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFBA350-186F-4B9D-8408-D70B2C1501EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFBA350-186F-4B9D-8408-D70B2C1501EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFBA350-186F-4B9D-8408-D70B2C1501EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFBA350-186F-4B9D-8408-D70B2C1501EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE849D42-8DF0-4BBB-A664-E11178407C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE849D42-8DF0-4BBB-A664-E11178407C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE849D42-8DF0-4BBB-A664-E11178407C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE849D42-8DF0-4BBB-A664-E11178407C4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

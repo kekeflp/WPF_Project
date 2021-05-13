@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xJM+iovGEaq0m/l1iwpzxd7AyHrMHFPLmhBwivX5cP69vyHTFvw4entl2vFLyENe9UhfaKG+ZXBgh0zCgLhQlQ==",
+  "dgSpecHash": "TZ5DnpnM3BOQnZpDIIq5gHrer7tlUEx9jMX7VAXOsi1YJAsFuVH4kh26+Sa2mV2V17075GVXvII8dQrI3Y2Y6Q==",
   "success": true,
   "projectFilePath": "D:\\vscode\\WPF_Project\\SimpleContactBook\\SimpleContactBook.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tom\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.0.1\\microsoft.toolkit.mvvm.7.0.1.nupkg.sha512"
+    "C:\\Users\\tom\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.0.2\\microsoft.toolkit.mvvm.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }

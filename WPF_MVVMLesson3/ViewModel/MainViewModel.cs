@@ -1,11 +1,7 @@
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using WPF_MVVMLesson3.Model;
-using WPF_MVVMLesson3.View;
 
 namespace WPF_MVVMLesson3.ViewModel
 {
@@ -25,6 +21,7 @@ namespace WPF_MVVMLesson3.ViewModel
         }
 
         private Student student;
+
         public Student Student
         {
             get { return student; }
@@ -32,6 +29,7 @@ namespace WPF_MVVMLesson3.ViewModel
         }
 
         private List<Student> studentList;
+
         public List<Student> StudentList
         {
             get { return studentList; }
@@ -39,6 +37,7 @@ namespace WPF_MVVMLesson3.ViewModel
         }
 
         private string search = string.Empty;
+
         public string Search
         {
             get { return search; }
@@ -48,7 +47,7 @@ namespace WPF_MVVMLesson3.ViewModel
         /// <summary>
         /// 构造数据
         /// </summary>
-        void Init()
+        private void Init()
         {
             StudentList = new List<Student>() { };
             for (int i = 0; i < 5; i++)
@@ -65,17 +64,19 @@ namespace WPF_MVVMLesson3.ViewModel
         }
 
         #region 命令
+
         public RelayCommand<string> QueryStudentByName { get; set; }
         public RelayCommand ResetCommand { get; set; }
         public RelayCommand<int> EditCommand { get; set; }
         public RelayCommand<int> DelCommand { get; set; }
-        #endregion
+
+        #endregion 命令
 
         /// <summary>
         /// 添加学生
         /// </summary>
         /// <param name="stu">学生类</param>
-        void Add(Student stu)
+        private void Add(Student stu)
         {
             StudentList.Add(stu);
         }
@@ -84,7 +85,7 @@ namespace WPF_MVVMLesson3.ViewModel
         /// 根据学生的ID删除学生
         /// </summary>
         /// <param name="id">学生ID</param>
-        void DelStudentById(int id)
+        private void DelStudentById(int id)
         {
             var model = StudentList.FirstOrDefault(s => s.Id == id);
             if (model != null)
@@ -98,7 +99,7 @@ namespace WPF_MVVMLesson3.ViewModel
         /// </summary>
         /// <param name="str">名称</param>
         /// <returns>学生集合</returns>
-        void GetStudentByName(string str)
+        private void GetStudentByName(string str)
         {
             var models = StudentList.Where(s => s.UserName.Contains(str)).ToList();
             if (models != null)
@@ -107,13 +108,12 @@ namespace WPF_MVVMLesson3.ViewModel
             }
         }
 
-
         /// <summary>
         /// 查询所有学生
         /// </summary>
         /// <param name="str">名称</param>
         /// <returns>学生集合</returns>
-        void GetStudentALL()
+        private void GetStudentALL()
         {
             Init();
         }
@@ -129,12 +129,12 @@ namespace WPF_MVVMLesson3.ViewModel
             //if (model != null)
             //{
             //    var esvm = new EditStudentViewModel(Student);
-           
+
             //}
         }
 
-
         #region 其他方案
+
         ///// <summary>
         ///// 初始化查询
         ///// </summary>
@@ -169,6 +169,7 @@ namespace WPF_MVVMLesson3.ViewModel
         //{
         //    return StudentList.Where(s => s.UserName.Contains(str)).ToList();
         //}
-        #endregion
+
+        #endregion 其他方案
     }
 }

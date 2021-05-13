@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\VSCode\DotNET\WPF_Project\WPF_MVVMLesson2\obj\Debug\
+D:\vscode\WPF_Project\WPF_MVVMLesson2\obj\Debug\
 WPF_MVVMLesson2
 none
 false
 DEBUG;TRACE
-D:\VSCode\DotNET\WPF_Project\WPF_MVVMLesson2\App.xaml
+D:\vscode\WPF_Project\WPF_MVVMLesson2\App.xaml
 41487210687
 
 12-476919703
-69-1384119445
+13738642453
 MainWindow.xaml;View\Page1.xaml;View\Page2.xaml;View\Page3.xaml;
 
-True
+False
 

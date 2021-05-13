@@ -11,7 +11,7 @@ using WPF_SimpleTrader.WPF.ViewModels.Messages;
 
 namespace WPF_SimpleTrader.WPF.ViewModels
 {
-    public class BuyViewModel : ViewModelBase
+    public class BuyViewModel : ViewModelBase, ISearchSymbolViewModel
     {
         private string _symbol;
         public string Symbol
@@ -55,6 +55,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         }
 
         public MessageViewModel ErrorMessageViewModel { get; }
+        public string ErrorMessage { set => ErrorMessageViewModel.Message = value; }
         public MessageViewModel StatusMessageViewModel { get; }
 
         public double TotalPrice => ShareToBuy * StockPrice;

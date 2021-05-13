@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Windows;
 using WPF_SimpleTrader.Domain.Exceptions;
 using WPF_SimpleTrader.WPF.State.Authenticators;
@@ -26,16 +27,29 @@ namespace WPF_SimpleTrader.WPF.ViewModels
         public MessageViewModel ErrorMessageViewModel { get; }
 
         public IRelayCommand LoginCommand { get; private set; }
-        private readonly IAuthenticator _authenticator;
-        private readonly IRenavigator _renavigator;
+        public IRelayCommand ViewRegisterCommand { get; private set; }
 
-        public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
+        private readonly IAuthenticator _authenticator;
+        private readonly IRenavigator _loginNavigator;
+        private readonly IRenavigator _registerNavigator;
+
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginNavigator, IRenavigator registerNavigator)
         {
             _authenticator = authenticator;
-            _renavigator = renavigator;
+            _loginNavigator = loginNavigator;
+            _registerNavigator = registerNavigator;
             LoginCommand = new RelayCommand(LoginCmd);
+            ViewRegisterCommand = new RelayCommand(ViewRegisterCmd);
 
             ErrorMessageViewModel = new MessageViewModel();
+        }
+
+        /// <summary>
+        /// 跳转到注册界面
+        /// </summary>
+        private void ViewRegisterCmd()
+        {
+            _registerNavigator.Renavigate();
         }
 
         private async void LoginCmd()
@@ -45,7 +59,7 @@ namespace WPF_SimpleTrader.WPF.ViewModels
             try
             {
                 await _authenticator.Login(Username, Password);
-                _renavigator.Renavigate();
+                _loginNavigator.Renavigate();
             }
             catch (UserNotFoundException)
             {

@@ -1,14 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WPF_MVVMLesson1.Commons;
 
 namespace WPF_MVVMLesson1.ViewModels
 {
-    class MainWindowViewModel : NotificationPropertyChanged
+    internal class MainWindowViewModel : NotificationPropertyChanged
     {
         private double input1;
 
@@ -50,12 +46,12 @@ namespace WPF_MVVMLesson1.ViewModels
 
         public RelayCommand SaveCommand { get; set; }
 
-        void Add(object parameter)
+        private void Add(object parameter)
         {
             Result = Input1 + Input2;
         }
 
-        void Save(object parameter)
+        private void Save(object parameter)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
@@ -69,7 +65,5 @@ namespace WPF_MVVMLesson1.ViewModels
             SaveCommand = new RelayCommand();
             SaveCommand.ExecuteAction = new Action<object>(Save);
         }
-
-
     }
 }

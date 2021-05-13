@@ -9,40 +9,40 @@
         Title="MainWindow" Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
+            <RowDefinition Height="80" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" >
+        <StackPanel Orientation="Horizontal">
             <TextBlock Text="搜索：" Margin="5" Height="30" />
-            <TextBox Margin="10 0 0 0" Height="30" Width="150" Text="{Binding Search}"/>
-            <Button Margin="10 0 0 0" Height="30" Width="80" Content="搜索"  
+            <TextBox Margin="10 0 0 0" Height="30" Width="150" Text="{Binding Search}" />
+            <Button Margin="10 0 0 0" Height="30" Width="80" Content="搜索"
                     Command="{Binding QueryStudentByName}"
-                    CommandParameter="{Binding Search}"/>
-            <Button Margin="10 0 0 0" Height="30" Width="80" Content="重置" Command="{Binding ResetCommand}"/>
-            <Button Margin="10 0 0 0" Height="30" Width="80" Content="待定1"/>
-            <Button Margin="10 0 0 0" Height="30" Width="80" Content="待定2"/>
+                    CommandParameter="{Binding Search}" />
+            <Button Margin="10 0 0 0" Height="30" Width="80" Content="重置" Command="{Binding ResetCommand}" />
+            <Button Margin="10 0 0 0" Height="30" Width="80" Content="待定1" />
+            <Button Margin="10 0 0 0" Height="30" Width="80" Content="待定2" />
         </StackPanel>
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding StudentList}" AutoGenerateColumns="False"
                   IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="姓名" Binding="{Binding UserName}"/>
-                <DataGridTextColumn Header="年龄" Binding="{Binding Age}"/>
-                <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
-                <!--<DataGridCheckBoxColumn/>-->
-                <!--<DataGridComboBoxColumn/>-->
+                <DataGridTextColumn Header="姓名" Binding="{Binding UserName}" />
+                <DataGridTextColumn Header="年龄" Binding="{Binding Age}" />
+                <DataGridTextColumn Header="性别" Binding="{Binding Gender}" />
+                <!--<DataGridCheckBoxColumn />-->
+                <!--<DataGridComboBoxColumn />-->
                 <DataGridTemplateColumn Width="*" Header="操作">
-                    <DataGridTemplateColumn.CellTemplate >
+                    <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" >
-                                <Button Content="修改" Margin="10 5 0 5" Background="AliceBlue" 
-                                        Command="{Binding DataContext.EditCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}" 
-                                        CommandParameter="{Binding Id}"/>
-                                <Button Content="删除" Margin="10 5 0 5" Background="Red" 
-                                        Command="{Binding DataContext.DelCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}" 
-                                        CommandParameter="{Binding Id}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="修改" Margin="10 5 0 5" Background="AliceBlue"
+                                        Command="{Binding DataContext.EditCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding Id}" />
+                                <Button Content="删除" Margin="10 5 0 5" Background="Red"
+                                        Command="{Binding DataContext.DelCommand,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding Id}" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

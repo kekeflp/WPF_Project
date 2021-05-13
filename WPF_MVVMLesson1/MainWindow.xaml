@@ -8,15 +8,15 @@
         mc:Ignorable="d"
         Title="MVVM" Height="200" Width="250" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
         <StackPanel Margin="5" Background="AliceBlue">
-            <Button Margin="5" Width="50" Height="20" HorizontalAlignment="Left" Content="Save" Command="{Binding SaveCommand}"/>
-            <TextBox Height="20" Margin="5" Text="{Binding Input1}"/>
-            <TextBox Height="20" Margin="5" Text="{Binding Input2}"/>
-            <TextBox Height="20" Margin="5" Text="{Binding Result}"/>
-            <Button Margin="5" Width="50" Height="20" HorizontalAlignment="Right" Content="Result" Command="{Binding AddCommand}"/>
+            <Button Margin="5" Width="50" Height="20" HorizontalAlignment="Left" Content="Save" Command="{Binding SaveCommand}" />
+            <TextBox Height="20" Margin="5" Text="{Binding Input1}" />
+            <TextBox Height="20" Margin="5" Text="{Binding Input2}" />
+            <TextBox Height="20" Margin="5" Text="{Binding Result}" />
+            <Button Margin="5" Width="50" Height="20" HorizontalAlignment="Right" Content="Result" Command="{Binding AddCommand}" />
         </StackPanel>
     </Grid>
 </Window>

@@ -28,7 +28,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Toolkit.Mvvm/7.0.1": {
+      "Microsoft.Toolkit.Mvvm/7.0.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Microsoft.Toolkit.Mvvm.dll": {}
@@ -295,10 +295,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Toolkit.Mvvm/7.0.1": {
-      "sha512": "fTYzwb+uwXQtYW66hMZo6QXfqfbIyqvTZyy7Mc8IZq+ED8nQrsbb+uE8F8Ddc5LZwT3tL1Fw2ep7GxzDrJzP3w==",
+    "Microsoft.Toolkit.Mvvm/7.0.2": {
+      "sha512": "vHowFlLxngwp/VVKtD2r6FydKEVUS7wSqRLcjiH4tgwAiyn5ctntBt5O/ErklH5w6F6PNz5cOZganUguqZQ6BA==",
       "type": "package",
-      "path": "microsoft.toolkit.mvvm/7.0.1",
+      "path": "microsoft.toolkit.mvvm/7.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -313,7 +313,7 @@
         "lib/netstandard2.1/Microsoft.Toolkit.Mvvm.pdb",
         "lib/netstandard2.1/Microsoft.Toolkit.Mvvm.xml",
         "license.md",
-        "microsoft.toolkit.mvvm.7.0.1.nupkg.sha512",
+        "microsoft.toolkit.mvvm.7.0.2.nupkg.sha512",
         "microsoft.toolkit.mvvm.nuspec"
       ]
     },
@@ -752,7 +752,7 @@
     "net5.0-windows7.0": [
       "Instrument >= 1.0.0",
       "LiveCharts.Wpf.NetCore3 >= 0.9.7",
-      "Microsoft.Toolkit.Mvvm >= 7.0.1",
+      "Microsoft.Toolkit.Mvvm >= 7.0.2",
       "System.Data.OleDb >= 5.0.0"
     ]
   },
@@ -805,7 +805,7 @@
           },
           "Microsoft.Toolkit.Mvvm": {
             "target": "Package",
-            "version": "[7.0.1, )"
+            "version": "[7.0.2, )"
           },
           "System.Data.OleDb": {
             "target": "Package",
@@ -830,7 +830,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

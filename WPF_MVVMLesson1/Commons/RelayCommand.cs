@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace WPF_MVVMLesson1.Commons
 {
-    class RelayCommand : ICommand
+    internal class RelayCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

@@ -1,6 +1,3 @@
-using CommonServiceLocator;
-using GalaSoft.MvvmLight.Ioc;
-
 namespace WPF_MVVMLesson3.ViewModel
 {
     public class ViewModelLocator

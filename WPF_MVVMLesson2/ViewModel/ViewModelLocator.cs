@@ -4,16 +4,13 @@
       <vm:ViewModelLocator xmlns:vm="clr-namespace:WPF_MVVMLesson2"
                            x:Key="Locator" />
   </Application.Resources>
-  
+
   In the View:
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 
   You can also use Blend to do all this with the tool's support.
   See http://www.galasoft.ch/mvvm
 */
-
-using CommonServiceLocator;
-using GalaSoft.MvvmLight.Ioc;
 
 namespace WPF_MVVMLesson2.ViewModel
 {
@@ -51,7 +48,7 @@ namespace WPF_MVVMLesson2.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

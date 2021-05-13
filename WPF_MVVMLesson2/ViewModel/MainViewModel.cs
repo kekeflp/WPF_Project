@@ -1,9 +1,4 @@
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
-using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Windows.Documents;
 using WPF_MVVMLesson2.Model;
 using WPF_MVVMLesson2.View;
 
@@ -27,6 +22,7 @@ namespace WPF_MVVMLesson2.ViewModel
         }
 
         private CtrModule ctrmodule;
+
         public CtrModule CtrModule
         {
             get { return ctrmodule; }
@@ -34,6 +30,7 @@ namespace WPF_MVVMLesson2.ViewModel
         }
 
         private List<CtrModule> ctrmodules;
+
         public List<CtrModule> CtrModules
         {
             get { return ctrmodules; }
@@ -41,14 +38,15 @@ namespace WPF_MVVMLesson2.ViewModel
         }
 
         private object page;
+
         public object Page
         {
             get { return page; }
             set { page = value; RaisePropertyChanged(() => Page); }
         }
 
-
         private string testName;
+
         public string TestName
         {
             get { return testName; }
@@ -68,9 +66,11 @@ namespace WPF_MVVMLesson2.ViewModel
                 case "功能1":
                     Page = new Page1();
                     break;
+
                 case "功能2":
                     Page = new Page2();
                     break;
+
                 case "功能3":
                     Page = new Page3();
                     break;

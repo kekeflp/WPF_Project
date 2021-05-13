@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-using WPF_MVVMLesson3.Model;
+﻿using WPF_MVVMLesson3.Model;
 
 namespace WPF_MVVMLesson3.ViewModel
 {
@@ -11,6 +10,7 @@ namespace WPF_MVVMLesson3.ViewModel
         }
 
         private Student stuModel;
+
         public Student Student
         {
             get { return stuModel; }

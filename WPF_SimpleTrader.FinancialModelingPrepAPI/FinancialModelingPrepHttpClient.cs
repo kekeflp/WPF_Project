@@ -10,9 +10,11 @@ namespace WPF_SimpleTrader.FinancialModelingPrepAPI
     /// </summary>
     public class FinancialModelingPrepHttpClient : HttpClient
     {
-        public FinancialModelingPrepHttpClient()
+        private readonly string _apiKey;
+        public FinancialModelingPrepHttpClient(string apiKey)
         {
             base.BaseAddress = new Uri("https://financialmodelingprep.com/api/v3/");
+            _apiKey = apiKey;
         }
 
         /// <summary>
@@ -23,7 +25,7 @@ namespace WPF_SimpleTrader.FinancialModelingPrepAPI
         /// <returns>返回泛型类对象的实例</returns>
         public async Task<T> GetJsonResponse<T>(string uri)
         {
-            HttpResponseMessage response = await GetAsync(uri);
+            HttpResponseMessage response = await GetAsync($"{uri}?apiKey={_apiKey}");
             string jsonResponse = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<T>(jsonResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
